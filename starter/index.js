@@ -105,7 +105,7 @@ function averageChange(finances) {
   }
   return totalChange / (finances.length - 1);
 }
-console.log("Average of changes in Profit/Loss over the entire period:", averageChange(finances))
+console.log("Average of changes in Profit/Loss over the entire period:", Math.round(averageChange(finances)*100)/100)
 
 function greatestIncrease(finances) {
   let maxIncrease = 0;
