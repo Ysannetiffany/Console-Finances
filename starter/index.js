@@ -1,3 +1,5 @@
+console.log("Financial Analysis");
+
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -86,3 +88,50 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+let length = finances.length;
+console.log("Total number of months:", length);
+
+let net_total = 0; //first we have to assign 0 to the variable
+for (let i = 0; i < finances.length; i++) {
+  net_total += finances[i][1];
+}
+console.log("Net total amount of Profit/Loss: $", net_total);
+
+function averageChange(finances) {
+  let totalChange = 0;
+  for (let i = 1; i < finances.length; i++) {
+    totalChange += finances[i][1] - finances[i - 1][1];
+  }
+  return totalChange / (finances.length - 1);
+}
+console.log("Average of changes in Profit/Loss over the entire period:", averageChange(finances))
+
+function greatestIncrease(finances) {
+  let maxIncrease = 0;
+  let maxIncreaseMonth = '';
+  for (let i = 1; i < finances.length; i++) {
+    let increase = finances[i][1] - finances[i - 1][1];
+    if (increase > maxIncrease) {
+      maxIncrease = increase;
+      maxIncreaseMonth = finances[i][0];
+    }
+  }
+  return { date: maxIncreaseMonth, amount: maxIncrease };
+}
+console.log("Greatest increase in Profit/Loss:", greatestIncrease(finances));
+
+function greatestDecrease(finances) {
+  let maxDecrease = 0;
+  let maxDecreaseMonth = '';
+  for (let i = 1; i < finances.length; i++) {
+    let decrease = finances[i][1] - finances[i - 1][1];
+    if (decrease < maxDecrease) {
+      maxDecrease = decrease;
+      maxDecreaseMonth = finances[i][0];
+    }
+  }
+  return { date: maxDecreaseMonth, amount: maxDecrease };
+}
+console.log("Greatest decrease in Profit/Loss:", greatestDecrease(finances));
+//to print in web page the doc.write function can be used, but I'm having issues with this :/
