@@ -109,29 +109,29 @@ console.log("Average of changes in Profit/Loss over the entire period:", Math.ro
 
 function greatestIncrease(finances) {
   let maxIncrease = 0;
-  let maxIncreaseMonth = '';
+  let maxDate = '';
   for (let i = 1; i < finances.length; i++) {
     let increase = finances[i][1] - finances[i - 1][1];
     if (increase > maxIncrease) {
       maxIncrease = increase;
-      maxIncreaseMonth = finances[i][0];
+      maxDate = finances[i][0];
     }
   }
-  return { date: maxIncreaseMonth, amount: maxIncrease };
+  return { date: maxDate, amount: maxIncrease };
 }
 console.log("Greatest increase in Profit/Loss:", greatestIncrease(finances));
 
 function greatestDecrease(finances) {
   let maxDecrease = 0;
-  let maxDecreaseMonth = '';
+  let maxDate = '';
   for (let i = 1; i < finances.length; i++) {
     let decrease = finances[i][1] - finances[i - 1][1];
     if (decrease < maxDecrease) {
       maxDecrease = decrease;
-      maxDecreaseMonth = finances[i][0];
+      maxDate = finances[i][0];
     }
   }
-  return { date: maxDecreaseMonth, amount: maxDecrease };
+  return { date: maxDate, amount: maxDecrease };
 }
 console.log("Greatest decrease in Profit/Loss:", greatestDecrease(finances));
 //to print in web page the doc.write function can be used, but I'm having issues with this :/
