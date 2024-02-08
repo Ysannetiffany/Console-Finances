@@ -119,7 +119,7 @@ function greatestIncrease(finances) {
   }
   return { date: maxDate, amount: maxIncrease };
 }
-console.log("Greatest increase in Profit/Loss:", greatestIncrease(finances));
+console.log("Greatest increase in Profit/Loss: $", greatestIncrease(finances));
 
 function greatestDecrease(finances) {
   let maxDecrease = 0;
@@ -133,5 +133,5 @@ function greatestDecrease(finances) {
   }
   return { date: maxDate, amount: maxDecrease };
 }
-console.log("Greatest decrease in Profit/Loss:", greatestDecrease(finances));
+console.log("Greatest decrease in Profit/Loss: $", greatestDecrease(finances));
 //to print in web page the doc.write function can be used, but I'm having issues with this :/
